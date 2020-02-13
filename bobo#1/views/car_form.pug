@@ -1,0 +1,24 @@
+html
+    head
+        meta(charset='utf-8')
+        title #{name}
+    body
+        form(action='/car/input' method='post')
+            table
+                tr
+                    th 제품명
+                    td
+                        input(type='text' name='name')
+                tr
+                    th 가격
+                    td
+                        input(type='text' name='price')
+                tr
+                    th 제조사
+                    td
+                        input(type='text' name='company')
+                tr
+                    th 연식
+                    td
+                        input(type='text' name='year')
+            input(type='submit' value='저장')

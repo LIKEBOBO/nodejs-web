@@ -1,0 +1,24 @@
+html
+    head
+        meta(charset='utf-8')
+    body
+
+        form(action=`/car/modify/${car._id}` method='post')
+            table
+                tr
+                    th 제품명
+                    td
+                        input(type='text' name='name' value=`${car.name}`)
+                tr
+                    th 가격
+                    td
+                        input(type='text' name='price' value=`${car.price}`)
+                tr
+                    th 제조사
+                    td
+                        input(type='text' name='company' value=`${car.company}`)
+                tr
+                    th 연식
+                    td
+                        input(type='text' name='year' value=`${car.year}`)
+            input(type='submit' value='저장')

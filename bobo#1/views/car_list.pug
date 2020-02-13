@@ -1,0 +1,26 @@
+html
+    head
+        title #{name}
+    body
+
+        include top.pug
+        h1 보보의 차 리스트
+        table(border='1' bordercolor='black')
+            tr
+                th 순서
+                th 제품명
+                th 가격
+                th 제조사
+                th 연식
+            -for(var car of cars)
+                -var k=car._id;
+                tr
+                    td #{car._id}
+                    td
+                        a(href=`/car/detail/${k}`) #{car.name}
+                    td #{car.price}
+                    td #{car.company}
+                    td #{car.year}
+
+
+        a(href='/car/input') 자동차 추가

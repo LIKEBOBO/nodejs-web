@@ -1,0 +1,26 @@
+html
+    head
+        meta(charset='utf-8')
+    body
+        h1 자동차 상세보기
+        table
+            tr
+                th 번호
+                td #{car._id}
+            tr
+                th 제품명
+                td #{car.name}
+            tr
+                th 가격
+                td #{car.price}
+            tr
+                th 제조사
+                td #{car.company}
+            tr
+                th 연식
+                td #{car.year}
+        p
+            a(href='/car/list') 목록 &nbsp
+            a(href=`/car/modify/${car._id}`) 수정 &nbsp
+            a(href='/car/delete') 삭제
+
