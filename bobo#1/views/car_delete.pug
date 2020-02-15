@@ -1,0 +1,12 @@
+html
+    head
+        meta(charset='utf-8')
+        title #{name}
+    body
+        form(action=`/car/delete/${car._id}` method='post')
+            table
+                tr
+                    th 번호
+                    td
+                        input(type='text' name='_id' value=`${car._id}`)
+            input(type='submit' value='삭제')
