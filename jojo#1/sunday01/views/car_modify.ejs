@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 자동차 수정 </h1>
+    <form action="/car/modify" method="POST">
+        <table>
+            <tr>
+                <th>제품명</th>
+                <td><input type="text" name="name" value=<%=car._id%>></td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input type="text" name="price" value=<%=car.price%>></td>
+            </tr>
+            <tr>
+                <th>제조사</th>
+                <td><input type="text" name="company" value=<%=car.company%>></td>
+            </tr>
+            <tr>
+                <th>연식</th>
+                <td><input type="text" name="year" value=<%=car.year%>></td>
+            </tr>
+        </table>
+        <input type="submit" value="저장하기">
+    </form>
+</body>
+</html>

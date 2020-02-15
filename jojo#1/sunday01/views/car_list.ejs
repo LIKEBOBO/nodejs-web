@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 자동차 목록</h1>
+    <%-include('./top.ejs')%>
+    <table border="1", width="100%">
+        <tr>
+            <th>순서</th>
+            <th>제품명</th>
+            <th>가격</th>
+            <th>제조사</th>
+            <th>연식</th>
+        </tr>
+    <%
+        for(var car of cars){
+    %>
+            <tr>
+                <td><%=car._id%></td>
+                <td><a href ="/car/detail/<%=car._id%>"><%=car.name%></a></td>
+                <td><%=car.price%></td>
+                <td><%=car.company%></td>
+                <td><%=car.year%></td>
+            </tr>
+    <%
+        }
+    %>
+
+
+    </table>
+    <p> 검색: <input type="text"><button>확인</button></p>
+    <a href="/car/input">자동차추가</a>
+</body>
+</html>
