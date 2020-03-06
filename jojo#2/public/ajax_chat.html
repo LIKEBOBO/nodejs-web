@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/public/counter.html</title>
+</head>
+<body>
+    <h1>Ajax 웹 채팅 프로그램22</h1>
+    <fieldset style= "display: inline-block;">
+    <div style="border: 1px solid black;" id="box"><p>welcome!</p></div>
+    
+    보낸이:<input type="text" id="sender" value="user01">
+    메시지:<input type="text" id="message" >
+   
+    <input type="button" id="sendBtn" value="전송">
+    <div id="result">접속 카운트:</div>
+</fieldset>
+
+    
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        //
+        var size =0;
+        $('#sendBtn').click(function() {
+            var sender = $("#sender").val();
+            var message = $("message").val();
+            var url = "http://localhost:3000/sender?sender=&"+sender+"&message="+message; 
+
+        });
+        /* 
+        $('#sendBtn').click(function() {
+            var url = "http://localhost:3000/ajax_chat"; 
+            var size = 0; 
+
+            $("input").data("message");
+            
+            var message =$('#message').val();
+            $("p").eq(0).text(message);
+           
+
+
+
+        });
+        */
+
+        var interval = setInterval(function(){
+            var url="http://localhost:3000/receive?size="+size;
+            $.get(url,function(data,status){
+                if(data!=""&&status=="success"){
+                    var msgData =JSON.parse(data); // 문자열을 다시 수식으로 바꿔줌
+                    var msgList = msgData.msgList;
+                    size = msgData.length; 
+
+                    for (msg of msgList){
+                        console.log(msg);
+                        $("#box").append(msg.sender+":"+msg.message+"<br>");
+                    }
+                  
+                }
+            }
+        );
+        },1000);
+        
+        
+        //url에 접속하면 데이터가 날아오고 -> result라는 부분에 jquery이용하여 맵핑 
+        
+
+        
+    </script>    
+</script>
+</body>
+</html>

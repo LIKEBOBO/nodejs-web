@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/public/counter.html</title>
+</head>
+<body>
+    <h1>Ajax 웹 카운터 프로그래밍</h1>
+    <div id="result">접속 카운트:</div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        var url="http://localhost:3000/counter"
+        var size=0;
+
+        $.get(url,function(data,status){
+            if(status=="success"){
+            console.log(status,data);
+            size=JSON.parse(data); // 문자열을 다시 수식으로 바꿔줌
+            $("#result").html("접속 카운트:"+data);
+            }else{
+                $("#result").html("접속 카운트:"+status);
+            }
+        });
+
+        var interval = setInterval(function(){
+            var url="http://localhost:3000/check?size="+size;
+            $.get(url,function(data,status){
+                if(data!=""&&status=="success"){
+                    size=JSON.parse(data); // 문자열을 다시 수식으로 바꿔줌
+                    $("#result").html("접속 카운트:"+size);
+                }
+            }
+        );
+        },1000);
+
+    </script>
+</body>
+</html>

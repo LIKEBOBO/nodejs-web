@@ -4,8 +4,8 @@ var fs = require('fs');
 //console.log(data);
 
 //비동기 방식으로 파일 읽기 
-fs.readFile('./package.json', 'utf8', function(err, data){
-    if(err) throw err; 
-    console.log(data); 
+fs.readFile('./package.json', 'utf8', function (err, data) {
+    if (err) throw err;
+    console.log(data);
 })
 console.log('비동기');
