@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/views/car_detail.ejs</title>
+</head>
+<body>
+    <h1><%=car.name%> 상세보기</h1>
+    <hr>
+    <table border=1>
+        <tr>
+            <th>Id</th>
+            <td><%=car._id%></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><%=car.name%></td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td><%=car.price%></td>
+        </tr>
+        <tr>
+            <th>Company</th>
+            <td><%=car.company%></td>
+        </tr>
+        <tr>
+            <th>Year</th>
+            <td><%=car.year%></td>
+        </tr>
+        
+    </table>
+    
+    <a href="/shop">목록 돌아가기</a>
+    <a href="/shop/modify/<%=car._id%>">수정</a>
+    <a href="/shop/delete/<%=car._id%>">삭제</a>
+</body>
+</html>
